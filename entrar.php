@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$connect = mysqli_connect('localhost','root','' ,'login');
+$connect = mysqli_connect('mysql8.db4free.net:3307", "dianis", "coronita2794", "mascotas24');
 
 if(isset($_POST["user"]) && isset($_POST["pass"])){
   $user = mysqli_real_escape_string($connect, $_POST["user"]);
