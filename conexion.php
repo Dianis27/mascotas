@@ -1,5 +1,5 @@
 <?php
-$conexion =new mysqli("127.0.0.1", "root", "", "mascotas");
+$conexion =new mysqli("mysql8.db4free.net:3307", "dianis", "coronita2794", "mascotas24");
 
 if($conexion){
     
