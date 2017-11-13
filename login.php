@@ -34,7 +34,7 @@ if (isset($_SESSION["user"])) {
             
                 <nav class="menu">
                     
-                <a class="icon-home3" href="index.html">Inicio</a>
+                <a class="icon-home3" href="index.php">Inicio</a>
                 
                 <a class="icon-price-tags" href="productos.php">Productos</a>
                 
@@ -53,21 +53,43 @@ if (isset($_SESSION["user"])) {
         <main>
         
         <section id="banner">
-                <img src="css/img/mascotas5.jpg">
+                <img src="css/img/cintas.jpg">
                     <div class="contenedor">
                     
-                                                                      
+                        <h2><font color="red"></font></h2>                                                    
                     </div>
                 </section>
-            
+                    
         <section id="login">
+            
+        <script>
+	function validacion (id){
+		var elem=document.getElementById(id);
+		if (elem.checkValidity())
+			elem.style.borderColor="blue";
+		else
+			elem.style.borderColor="red;";
+	}
+	function enviado()
+	{
+		var userValido=document.getElementById('user').checkValidity();
+		var passValido=document.getElementById('pass').checkValidity();
+		
+		if(userValido, passValido)
+			alert("La informacion fue enviada exitosamente");
+		else
+			alert("Hay campos incompletos o no cumplen con el formato solicitado");
+
+	}
+
+</script>
             <center>
             <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <form method="post">
                                        
-              <center><h1><p>Login</p></h1></center>
+             <center><h1><p>Login</p></h1></center>
             <br><br>
             <div class="form-group">
               <br><br><label for="user">Usuario</label>
@@ -107,6 +129,19 @@ if (isset($_SESSION["user"])) {
                     <a class="icon-twitter" href=""></a>
                     <a class="icon-whatsapp" href=""></a>
                     <a class="icon-mail2" href=""></a>
+                     <a href="tel:5520369698">tel:5520369698</a>
+                    
+                   <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+<div id="SkypeButton_Call_live:tienda_petstar_1">
+ <script type="text/javascript">
+ Skype.ui({
+ "name": "call",
+ "element": "SkypeButton_Call_live:tienda_petstar_1",
+ "participants": ["live:tienda_petstar"]
+ });
+ </script>
+</div>     
+                    
                 </div>
             
             </div>
@@ -125,3 +160,33 @@ if (isset($_SESSION["user"])) {
     </body>
 </html>
         
+
+<script>
+  $(document).ready(function() {
+    $('#login').click(function(){
+      var user = $('#user').val();
+      var pass = $('#pass').val();
+      if($.trim(user).length > 0 && $.trim(pass).length > 0){
+        $.ajax({
+          url:"entrar.php",
+          method:"POST",
+          data:{user:user, pass:pass},
+          cache:"false",
+          beforeSend:function() {
+            $('#login').val("Validando...");
+          },
+          success:function(data) {
+            $('#login').val("Login");
+            if (data=="1") {
+              $(location).attr('href','admin.php');
+            } else {
+              $("#result").html("<div class='alert alert-dismissible alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Error!</strong> El usuario o la contaseña son incorrectas.</div>");
+                        
+            }
+          }
+                                              
+        });
+      };
+    });
+  });
+</script>

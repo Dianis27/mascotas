@@ -1,5 +1,5 @@
 <?php
-$conexion =new mysqli("localhost", "root", "", "mascotas");
+$conexion =new mysqli("127.0.0.1", "root", "", "mascotas");
 
 if($conexion){
     

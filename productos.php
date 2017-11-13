@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+            
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
@@ -24,7 +26,7 @@
             
                 <nav class="menu">
                     
-                <a class="icon-home3" href="index.html">Inicio</a>
+                <a class="icon-home3" href="index.php">Inicio</a>
                 
                 <a class="icon-price-tags" href="productos.php">Productos</a>
                 
@@ -50,12 +52,18 @@
                     </div>
                 </section>
             
+            <section id="Bienvenidos">
+                    <center>
+                <h2>Tenemos los mejores Productos</h2>
+                    <h4>Adquiere nuestros productos de calidad ellos te lo agradeceran...</h4>                    
+                
+                </center>        
+                </section>
             
-        <section>
             
-                       
-            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-            <center>
+        <section class="product">
+            
+            
                 
                  <?php
                     include ("conexion.php");
@@ -64,24 +72,25 @@
                     while($row = $resultado->fetch_assoc()){
                 ?>
                 
-            <div class="col-md-8">
+                
+            <div class="col-md-8" aling="center">
                 <div class="panel panel-info">
                     <div class="panel-heading"><?php echo $row['cn_nom_produc']; ?></div>
-                    
+                        
                     <div class="panel-body">
-                        <div class="col-md-4">
+                        <div aling='center' class="col-md-4">
                             
                             <div class="panel panel-info"></div>
                             
                             <div class="panel-heading"><?php echo $row['cn_descripcion']; ?></div>
                             
                             <div class="panel-body">
-                                <img height="70px"  src="data:image/jpg;base64,<?php echo base64_encode($row['cn_img']); ?>" />                      
+                                <img height="150px"  src="data:image/jpg;base64,<?php echo base64_encode($row['cn_img']); ?>" />                      
                             </div>
                             
                             <div class="panel-heading">
                             
-                               $ <?php echo $row['cn_precio']; ?> <button style="float:rigth;" class="btn btn-danger bt">Agregar al Carrito</button>
+                               $ <?php echo $row['cn_precio']; ?> <a href="carrito.php" style="float:rigth;" class="btn btn-danger bt" href="carrito.php"  >Agregar al Carrito</a>
                             
                             </div>
                                                 
@@ -100,7 +109,7 @@
                     }
 	           ?>
             
-                    </center>
+                  
           
            
             </section>
@@ -115,6 +124,19 @@
                     <a class="icon-twitter" href=""></a>
                     <a class="icon-whatsapp" href=""></a>
                     <a class="icon-mail2" href=""></a>
+                    
+                     <a href="tel:5520369698">tel:5520369698</a>
+                    
+                   <script type="text/javascript" src="https://secure.skypeassets.com/i/scom/js/skype-uri.js"></script>
+<div id="SkypeButton_Call_live:tienda_petstar_1">
+ <script type="text/javascript">
+ Skype.ui({
+ "name": "call",
+ "element": "SkypeButton_Call_live:tienda_petstar_1",
+ "participants": ["live:tienda_petstar"]
+ });
+ </script>
+</div>     
                 </div>
             
             </div>
