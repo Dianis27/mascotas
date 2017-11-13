@@ -23,7 +23,7 @@
             
                 <nav class="menu">
                     
-                <a class="icon-home3" href="index.html">Inicio</a>
+                <a class="icon-home3" href="index.php">Inicio</a>
                 
                 <a class="icon-price-tags" href="productos.php">Productos</a>
                 
