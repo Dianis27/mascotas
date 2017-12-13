@@ -74,17 +74,15 @@
                     while($row = $resultado->fetch_assoc()){
                 ?>
                                 
-            <div class="col-md-8">
-                <div class="panel panel-info">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
                     <div class="panel-heading"><?php echo $row['nombre']; ?></div>
                     
                     <div class="panel-body">
-                        <div class="col-md-4">
+                        <div class="col-md-6 col-md-offset-3">
                             
                             <div class="panel panel-info"></div>
-                            
-                            <div  class="panel-heading"><?php echo $row['edad']; ?></div>
-                            
+                                                                            
                             <div  class="panel-heading"><?php echo $row['raza']; ?></div>
                             
                             <div  class="panel-heading"><?php echo $row['descripcion']; ?></div>
@@ -116,10 +114,9 @@
             <section class="video-responsive">
                 
                 <center>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/HeiUiFWpjqQ" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="tiernos.mp4" frameborder="0" allowfullscreen></iframe>
                     </center>
-          
-            
+                    
             </section>
             
         

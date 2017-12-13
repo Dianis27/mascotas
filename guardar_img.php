@@ -3,19 +3,18 @@
     include("conexion.php");
     
     $nombre = $_POST['nombre'];
-    $edad = $_POST['edad'];
-    $raza = $_POST['raza'];
+    $precio = $_POST['precio'];
+    $imagen = $_POST['imagen'];
     $descripcion = $_POST['descripcion'];
-    $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name'])); 
-
     
-    $query ="INSERT INTO adopcion (nombre, edad, raza, descripcion, imagen) VALUES ('$nombre', '$edad', '$raza', '$descripcion', '$imagen')";
+    
+    $query ="INSERT INTO productos (nombre, precio, imagen, descripcion) VALUES ('$nombre', '$precio', '$imagen', '$descripcion')";
     
         
     $resultado = $conexion->query($query);
 
     if($resultado){
-        header("Location: mostrar_img.php");
+        header("Location: mostrar_product.php");
     } 
 
     else {

@@ -53,10 +53,10 @@ if (isset($_SESSION["user"])) {
         <main>
         
         <section id="banner">
-                <img src="css/img/cintas.jpg">
+               <br> <img src="css/img/mascotas.jpg">
                     <div class="contenedor">
                     
-                        <h2><font color="red"></font></h2>                                                    
+                        <h2><font color="Gray"></font></h2>                                                    
                     </div>
                 </section>
                     

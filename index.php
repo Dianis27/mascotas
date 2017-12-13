@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="css/video.css">
             
     </head>
     
@@ -61,26 +62,57 @@
                 </center>        
                 </section>
                 
+                 <section>
+                <head><center><u><b><h1>¿Quieres darles un hogar?, "Contactanos" </h1>
+                    
+                    <marquee align="middle" style="border:Black 3px SOLID" direction="right">
+
+                        <img src="css/img/perritos/azul_ruso.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/beegle.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/chihuahua.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/conejo.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/gatito_amarillo.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/hamster.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/hamster2.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/labrador.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/labrador1.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/pastor_aleman.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/periquito-azul.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/perritos1.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/pomerania.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/rottweiler.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/rottweiler1.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/schnauzer.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/schnauzer1.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/siames.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/yorkshire.jpg" width="350" height="250" alt="Img" />
+                        <img src="css/img/perritos/yorki.jpg" width="350" height="250" alt="Img" />
+                        
+        
+                    </marquee>
+                    </b></u></center></head>
+                </section>
                 
                 <section>
-                <center><h2>Productos Recientes</h2><br/><br/></center>
+                <head><center><b><h2>Contamos con gran variedad de productos para todo tipo de mascotas</h2><br/>
+                    
+                    <center><u>Conocelos Aqui:</u></center>
+                    <img src="css/img/r_productos.png" width="400" height="350">
+                    
+                            
+                    </b></center></head>
+                </section>
                 
-                    <div id="c-slider">
-                    <div id="slider">
-                    <section><img src="css/img/productos/productos4.jpg" width="300" height="200" alt=""></section>
-                    <section><img src="css/img/productos/productos5.jpg" alt=""></section>
-                    <section><img src="css/img/productos/productos2.jpg" alt=""></section>
-                    <section><img src="css/img/productos/productos1.jpg" alt=""></section>
-                    <section><img src="css/img/productos/recientes3.jpg" alt=""></section>
-                                
-                    </div>
-                         
-                <div id="btn-prev">&#60;</div>
-                <div id="btn-next">&#62;</div>
-                    </div> 
-                <script src="js/jquery-3.1.1.min.js"></script>
-                <script src="js/slider.js"></script>
-        </section>
+                <section>
+                <head><center><b><h2>¿Estas solo y aburrido?, descubre por que los gatitos son los ideales para hacerte pasar un rato agradable.</h2><br/>
+                    
+                    <center><u>Solo observa con atención: </u></center>
+                    <img src="css/img/r_cats.jpg" width="400" height="350">
+                    
+                            
+                    </b></center></head>
+                </section>
+               
                 
         <section id="info">
             <h3>Para muchos las mascotas son miembros de la familia, si los has visto comunicate con nosotros:</h3>

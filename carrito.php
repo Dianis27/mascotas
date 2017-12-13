@@ -1,58 +1,60 @@
 <?php
-session_start();
-include ("conexion.php");
-if(isset($_SESSION['carrito'])){
-    $arreglo=$_SESSION['carrito'];
-    $encontro=false;
-    $numero=o;
-    for($i=0; $i<count($arreglo); $i++){
-        if($arreglo[$i]['id']==$_GET['id']){
-            $encontro=true;
-            $numero=$i;
-            
-        }
-    }
-    
-    if(encontro==true){
-        $arreglo[$numero]['cantidad']=$arreglo[$numero]['cantidad']+1;
-        $_SESSION['carrito']=$arreglo;
-        
-    }else{
-         $nombre="";
-        $precio=0;
-        $imagen="";
-        $re=mysql_query("select * from tb_productos where cn_id_productos=".$_GET['id']);
-        while ($f=mysql_fetch_array($re)){
-            $nombre=$f['cn_nom_produc'];
-            $precio=$f['cn_precio'];
-            $imagen=$f['cn_img'];
-        }
-        $datosNuevos=array('cn_id_productos'=>$_GET['id'], 'nombre'=>$nombre, 'precio'=>$precio, 'imagen'=>$imagen, 'cantidad'=>1);
-        
-        array_push($arreglo, $datosNuevos);
-        $_SESSION['carrito']=$arreglo;
-        
-    }
-    
-}else{
-    if(isset($_GET['id'])){
-        $nombre="";
-        $precio=0;
-        $imagen="";
-        $re=mysql_query("select * from tb_productos where cn_id_productos=".$_GET['id']);
-        while ($f=mysql_fetch_array($re)){
-            $nombre=$f['cn_nom_produc'];
-            $precio=$f['cn_precio'];
-            $imagen=$f['cn_img'];
-        }
-        $arreglo[]=array('cn_id_productos'=>$_GET['id'], 'nombre'=>$nombre, 'precio'=>$precio, 'imagen'=>$imagen, 'cantidad'=>1);
-        
-        $_SESSION['carrito']=$arreglo;
-        
-    }
+	session_start();
+	include 'conexiones.php';
+	if(isset($_SESSION['carrito'])){
+		if(isset($_GET['id'])){
+		$arreglo=$_SESSION['carrito'];
+		$encontro=false;
+		$numero=0;
+		for($i=0;$i<count($arreglo);$i++){
+			if ($arreglo[$i]['id']==$_GET['id']) {
+				$encontro=true;
+				$numero=$i;
+			}
+		}
+		if($encontro==true){
+			$arreglo[$numero]['cantidad']=$arreglo[$numero]['cantidad']+1;
+			$_SESSION['carrito']=$arreglo;
+		}else{
+			$nombre="";
+			$precio=0;
+			$imagen="";
+			$re=mysql_query("select * from productos where id=".$_GET['id']);
+			while ($f=mysql_fetch_array($re)) {
+				$nombre=$f['nombre'];
+				$precio=$f['precio'];
+				$imagen=$f['imagen'];
+			}
+			$datosNuevos=array('id'=>$_GET['id'],
+							'nombre'=>$nombre,
+							'precio'=>$precio,
+							'imagen'=>$imagen,
+							'cantidad'=>1);
+			array_push($arreglo, $datosNuevos);
+			$_SESSION['carrito']=$arreglo;
+		}
 }
-?>
+	}else{
+		if(isset($_GET['id'])){
+			$nombre="";
+			$precio=0;
+			$imagen="";
+			$re=mysql_query("select * from productos where id=".$_GET['id']);
+			while ($f=mysql_fetch_array($re)) {
+				$nombre=$f['nombre'];
+				$precio=$f['precio'];
+				$imagen=$f['imagen'];
+			}
+			$arreglo[]=array('id'=>$GET['id'],
+							'nombre'=>$nombre,
+							'precio'=>$precio,
+							'imagen'=>$imagen,
+							'cantidad'=>1);
+			$_SESSION['carrito']=$arreglo;			
 
+		}
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -100,71 +102,48 @@ if(isset($_SESSION['carrito'])){
         <main>
         
         <section id="banner">
-                <img src="css/img/mascotas17.jpg">
+                <img src="css/img/fondo3.jpg">
                     <div class="contenedor">
                     
-                        <h2><font color="gray">Invertir en nuestros amigos peludos no tiene precio...</font></h2>                                                    
+                        <h2><font color="">Invertir en nuestros amigos peludos no tiene precio...</font></h2>                                                    
                     </div>
                 </section>
             
         
         <section>
             
-            <?php 
-            
-            $total=0;
-            if(isset($_SESSION['carrito'])){
-                $datos=$_SESSION['carrito'];
-                
-                for($i=0; $i<count($datos); $i++){
-                    ?>
-            
-            <div>
-                
-                <center>
-                <img src="productos.php<?php echo $datos[$i]['imagen']; ?>"><br>
-                    
-                <span><?php echo $datos[$i]['nombre']; ?></span><br>
-                    
-                <span>Precio: <?php echo $datos[$i]['precio']; ?></span><br>
-                    
-                <span>Cantidad: <input type="text" value="<?php echo $datos[$i]['cantidad']; ?>"/></span><br>
-                
-                <span>Precio: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?>"/></span><br>
-                
-                
-                </center>
-                        
-            </div>
+            <?php
+		
+			$total=0;
+		if(isset($_SESSION['carrito'])){
+			$datos=$_SESSION['carrito'];
+			$total=0;
+			for($i=0;$i<count($datos);$i++){
+	?>
+			<div class="producto">
+				<center>
+					<img width="250" height="200" src="./css/img/<?php echo $datos[$i]['imagen'];?>"><br>
+					<span><?php echo $datos[$i]['nombre']?></span><br>
+					<span>Precio: <?php echo $datos[$i]['precio'];?></span><br>
+					<span>Cantidad: <input type="text" value="<?php echo $datos[$i]['cantidad'];?>"></span><br>
+					<span>Precio: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio'];?></span><br><br><br>
+				</center>
+			</div>
 
-<?php
-    $total=($datos[$i]['cantidad']*$datos[$i]['precio'])+$total;
-                }
-                 
-            } else {
-                
-                echo '<center><h2>El carrito esta vacio</h2></center>';
-            }
-    echo '<center><h2>Total: '.$total.'</h2></center>';
-            
-            ?>
-            
-            <center><a href="productos.php">Regresar al catalogo</a></center>
-            
-            
-            
-            
-            
-            
+	<?php
+		$total=($datos[$i]['cantidad']*$datos[$i]['precio'])+$total;
+			}
+
+		} else{
+			echo '<center><h2>El carrito de compras esta vacio</h2></center>';
+		}
+		echo '<center><h2>total: '.$total.'</h2></center>';
+?>
+<center><a href="productos.php">Ver catalogo</a></center>
+
             
             </section>
-            
-            
-            
-            
-            
-            
-            
+        
             
         <footer>
             <div class="contenedor">

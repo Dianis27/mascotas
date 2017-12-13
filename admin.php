@@ -38,7 +38,7 @@ if(!isset($_SESSION["user"])){
         <main>
         
         <section id="banner">
-                <img src="css/img/mascotas17.jpg">
+                <img src="css/img/mascota15.jpg">
                     <div class="contenedor">
                     
                         <h2><font color="gray"></font></h2>                                                    
@@ -92,3 +92,9 @@ if(!isset($_SESSION["user"])){
         <footer>
             <div class="contenedor">
                 <p class="copy, icon-paw">PetStars  &copy; 2017</p>
+
+            </div>
+            </footer>
+        </main>
+    </body>
+</html>

@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <title>PetStars</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum=scale=1">
     
-    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/info.css">
+    <script src="bootstrap/css/bootstrap.min.css"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    </head> 
     
-    <title>Mostrar imagenes</title>
-    
-    <link rel="stylesheet" href="estilo.css">
-    <meta name="viewport" content="width-device-width, user-scalable=no, initial-scale-1.0, maximum-scale=1.0, minimum=scale=1.0">
-    
-    <link href="css.css" rel="stylesheet">
-    
-    </head>
     <body>
+        <header>
+            <div class="contenedor">
+            <h1 class="icon-paw">PetStars</h1>
+            <input type="checkbox" id="menu-bar">
+                
+                
+            </div>
+             
+        </header>
+        
+        <main>
+        
+        <section id="banner">
+                <img src="css/img/mascota15.jpg">
+                    <div class="contenedor">
+                    
+                        <h2><font color="gray"></font></h2>                                                    
+                    </div>
+                </section>
+            
+            
+    <section>
+        
+        <center><font color="Red"><h2>En esta seccion se muestra la informacion de las mascotas disponibles para su adopcion</h2></font></center>
+        
+        <br/><p class="icon-home3" align=center><a href="admin.php">Vover al Inicio</a></p>
+
         <div class="conten">
         <center><br/><br/>
             <table border="1">
                 <thead>
                     <tr>
-                        <th colspan="5"><a href="edit_adopciones.php">Agregar Imagen</a></th>
+                        <th colspan="4"><a href="edit_adopciones.php">Agregar Imagen</a></th>
                     </tr>
                     <tr>
-                        <th>Id</th>
+                       
                         <th>Nombre</th>
-                        <th>Edad</th>
                         <th>Raza</th>
                         <th>Descripcion</th>
                         <th>Imagen</th>
-                        <th colspan="2">Operaciones</th>
+                       
                     </tr>
                                 
                 
@@ -42,21 +71,16 @@
                     <tr>
                         <center>
                         
-                        <td><?php echo $row['id']; ?></td>
-                        
+                       
                         <td><?php echo $row['nombre']; ?></td>
-                        
-                        <td><?php echo $row['edad']; ?></td>
-                        
+                                                                    
                         <td><?php echo $row['raza']; ?></td>
                         
                         <td><?php echo $row['descripcion']; ?></td>
                                                 
                         <td><img height="70px"  src="data:image/jpg;base64,<?php echo base64_encode($row['imagen']); ?>"/></td>
                         
-                        <th><a href="modificar.php?id=<?php echo $row['id']; ?>">Modificar</a></th>
                         
-                        <th><a href="#">Eliminar</a></th>
                         
                             </center>
                     </tr>
@@ -71,6 +95,15 @@
         </center>
     
     </div>
+            </section>
+             <footer>
+            <div class="contenedor">
+                <p class="copy, icon-paw">PetStars  &copy; 2017</p>
+
+            </div>
+            
+            </footer>
+        </main>
     </body>
 
 </html>

@@ -45,7 +45,7 @@
         <main>
         
         <section id="banner">
-                <img src="css/img/mascotas9.jpg">
+                <img src="css/img/mascota15.jpg">
                     <div class="contenedor">
                     
                         <h2>Conoce nuestra linea de productos...</h2>                                                    
@@ -65,32 +65,33 @@
             
             
                 
-                 <?php
-                    include ("conexion.php");
-                    $query = "SELECT * FROM tb_productos";
-                    $resultado = $conexion->query($query);
-                    while($row = $resultado->fetch_assoc()){
-                ?>
+        <?php
+		include 'conexiones.php';
+		$re=mysql_query("select * from productos")or die(mysql_error());
+		while ($f=mysql_fetch_array($re)) {
+		?>
+
+
                 
-                
-            <div class="col-md-8" aling="center">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><?php echo $row['cn_nom_produc']; ?></div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><?php echo $f['nombre']; ?></div>
                         
                     <div class="panel-body">
-                        <div aling='center' class="col-md-4">
+                        <div class="col-md-6 col-md-offset-3">
                             
-                            <div class="panel panel-info"></div>
+                            <div class="panel panel-primary"></div>
                             
-                            <div class="panel-heading"><?php echo $row['cn_descripcion']; ?></div>
+                            <div class="panel-heading"><?php echo $f['descripcion']; ?></div>
                             
-                            <div class="panel-body">
-                                <img height="150px"  src="data:image/jpg;base64,<?php echo base64_encode($row['cn_img']); ?>" />                      
+                            <div class="panel-body"><div class="imagen">
+                                <img height="150px" src="css/img/<?php echo $f['imagen'];?>"><br>  
+                                </div>                                
                             </div>
                             
                             <div class="panel-heading">
                             
-                               $ <?php echo $row['cn_precio']; ?> <a href="carrito.php" style="float:rigth;" class="btn btn-danger bt" href="carrito.php"  >Agregar al Carrito</a>
+                               $ <?php echo $f['precio']; ?> <a href="./carrito.php?id=<?php echo $f['id'];?>" style="float:rigth;" class="btn btn-danger bt"  >Agregar al Carrito</a>
                             
                             </div>
                                                 
@@ -108,14 +109,40 @@
                  <?php
                     }
 	           ?>
+                                 
+            </section>
             
-                  
-          
-           
+            <section>
+                
+                 <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Descubre Nuestras Ofertas: </div>
+                        
+                    <div class="panel-body">
+                        <div class="">
+                            
+                            <div class="panel panel-primary"></div>
+                                                                             
+                            <div class="panel-body"><div class="imagen">
+                                <center>
+                                 <img height="250px" src="css/img/qr-code.png">
+                                 <img height="250px" src="css/img/qr-code%20(1).png">
+                                 <img height="250px" src="css/img/qr-code%20(2).png">
+                                 <img height="250px" src="css/img/qr-code%20(3).png">
+                                </center>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                     </div>
+                </div>
+                
+                        
             </section>
             
             
-     
+            
+            
         <footer>
             <div class="contenedor">
                 <p class="copy, icon-paw">PetStars  &copy; 2017</p>
